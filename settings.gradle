@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='Textify_Donthineni_Vadrevu'
