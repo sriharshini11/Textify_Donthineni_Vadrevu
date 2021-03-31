@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -38,7 +40,7 @@ import java.util.Date;
 public class Homepage extends AppCompatActivity {
 
     public ImageView cameraview;
-    public Button camerabutton;
+    public ImageView camerabutton;
     public Bitmap captureimage;
     public Button textbutton;
     File imagefile;
@@ -53,8 +55,9 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         this.setTitle("Textify");
-        cameraview=(ImageView)findViewById(R.id.camera);
-        camerabutton=(Button)findViewById(R.id.camerabutton);
+        //cameraview=(ImageView)findViewById(R.id.camera);
+        camerabutton=(ImageView) findViewById(R.id.camerabutton);
+        //camerabutton.setBackgroundColor(Color.BLACK);
         textbutton=(Button)findViewById(R.id.textbutton);
 
         if(ContextCompat.checkSelfPermission(Homepage.this, Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED)
@@ -63,34 +66,30 @@ public class Homepage extends AppCompatActivity {
             ActivityCompat.requestPermissions(Homepage.this,permissionarray,100);
         }
 
-        camerabutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(i,100);
+//        camerabutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                startActivityForResult(i,100);
+//
+//
+//
+//            }
+//        });
+//        textbutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//              StringBuilder finaltext=getTextFromImage();
+//              Intent generatedtext = new Intent(Homepage.this, GeneratedText.class);
+//              generatedtext.putExtra("text",finaltext.toString());
+//              startActivity(generatedtext);
+//
+//
+//
+//            }
+//        });
+//
 
-                //imagefile=new File(Environment.getExternalStorageDirectory()+File.separator+"DCIM"+File.separator+"temp.png");
-                /*
-                Uri tempuri=Uri.fromFile(imagefile);
-                System.out.println("tempuriiii"+tempuri.toString());
-                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                i.putExtra(MediaStore.EXTRA_OUTPUT,tempuri);
-                startActivityForResult(i,100);*/
-
-            }
-        });
-        textbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              StringBuilder finaltext=getTextFromImage();
-              Intent generatedtext = new Intent(Homepage.this, GeneratedText.class);
-              generatedtext.putExtra("text",finaltext.toString());
-              startActivity(generatedtext);
-
-
-
-            }
-        });
     }
 
     @Override
@@ -100,7 +99,7 @@ public class Homepage extends AppCompatActivity {
         if(requestcode==100)
         {
             this.captureimage=(Bitmap) data.getExtras().get("data");
-            cameraview.setImageBitmap(captureimage);
+           // cameraview.setImageBitmap(captureimage);
 
         }
     }
