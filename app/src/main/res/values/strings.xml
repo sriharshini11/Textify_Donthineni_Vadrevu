@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Textify</string>
-    <string name="logout">logout</string>
+    <string name="logout">LOGOUT</string>
 </resources>

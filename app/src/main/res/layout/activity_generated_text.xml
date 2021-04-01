@@ -4,28 +4,64 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/generatedtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GENERATED TEXT"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        android:textSize="25dp"
+        />
 
     <TextView
         android:id="@+id/finaltext"
-        android:layout_width="396dp"
+        android:layout_width="match_parent"
         android:layout_height="381dp"
-        android:textSize="32dp" />
+        android:textSize="20dp"
+        android:gravity="center"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#c0c0c0"/>
+
 
     <TextView
         android:id="@+id/filenameview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="File Name" />
+        android:textSize="24dp"
+        android:textColor="@color/black"
+        android:text="File Name"
+        />
+
 
     <EditText
         android:id="@+id/filename"
-        android:layout_width="195dp"
+        android:layout_width="match_parent"
+        android:textSize="20dp"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/createfile"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:layout_marginTop="10dp"
-        android:text="Create File"/>
+        android:background="@color/red"
+        android:text="Create File"
+
+        />
+    <Button
+        android:id="@+id/gotohome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:background="@color/yellow"
+        android:text="Go Home"
+
+        />
 
 </LinearLayout>

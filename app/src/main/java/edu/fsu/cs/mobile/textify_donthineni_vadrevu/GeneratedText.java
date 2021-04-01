@@ -1,3 +1,5 @@
+//Sri Harshini Donthineni(sd17d), Venkata Vadrevu(vv18d)
+
 package edu.fsu.cs.mobile.textify_donthineni_vadrevu;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +31,7 @@ public class GeneratedText extends AppCompatActivity {
 
     private TextView text;
     private EditText filenametext;
+    private Button gohome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class GeneratedText extends AppCompatActivity {
         text.setText(finaltext);
         Button createfile=(Button)findViewById(R.id.createfile);
         filenametext=(EditText)findViewById(R.id.filename);
+        gohome=(Button)findViewById(R.id.gotohome);
 
 
         createfile.setOnClickListener(new View.OnClickListener() {
@@ -54,9 +58,21 @@ public class GeneratedText extends AppCompatActivity {
                 }
                 else{
                     filename=filename+".txt";
-                writeFileInternalStorage(v,finaltext,filename);}
+                writeFileInternalStorage(v,finaltext,filename);
+                    Toast.makeText(getApplicationContext(),
+                            "SUCCESS: File created", Toast.LENGTH_LONG).show();}
+
             }
         });
+        gohome.setOnClickListener(new View.OnClickListener() {
+                                      @Override
+                                      public void onClick(View v) {
+                                          Intent i=new Intent(GeneratedText.this,Homepage.class);
+                                          startActivity(i);
+                                      }
+                                  }
+
+        );
     }
     public boolean onOptionsItemSelected(MenuItem item) {
 

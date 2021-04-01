@@ -1,3 +1,5 @@
+//Sri Harshini Donthineni(sd17d), Venkata Vadrevu(vv18d)
+
 package edu.fsu.cs.mobile.textify_donthineni_vadrevu;
 
 import androidx.annotation.Nullable;
@@ -43,6 +45,7 @@ public class Homepage extends AppCompatActivity {
     public ImageView camerabutton;
     public Bitmap captureimage;
     public Button textbutton;
+    public Button retake;
     File imagefile;
 
     public Homepage()
@@ -55,10 +58,11 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         this.setTitle("Textify");
-        //cameraview=(ImageView)findViewById(R.id.camera);
+        cameraview=(ImageView)findViewById(R.id.camera);
         camerabutton=(ImageView) findViewById(R.id.camerabutton);
         //camerabutton.setBackgroundColor(Color.BLACK);
         textbutton=(Button)findViewById(R.id.textbutton);
+        retake=(Button)findViewById(R.id.retake);
 
         if(ContextCompat.checkSelfPermission(Homepage.this, Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED)
         {
@@ -66,29 +70,35 @@ public class Homepage extends AppCompatActivity {
             ActivityCompat.requestPermissions(Homepage.this,permissionarray,100);
         }
 
-//        camerabutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                startActivityForResult(i,100);
-//
-//
-//
-//            }
-//        });
-//        textbutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//              StringBuilder finaltext=getTextFromImage();
-//              Intent generatedtext = new Intent(Homepage.this, GeneratedText.class);
-//              generatedtext.putExtra("text",finaltext.toString());
-//              startActivity(generatedtext);
-//
-//
-//
-//            }
-//        });
-//
+        camerabutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(i,100);
+
+            }
+        });
+        textbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              StringBuilder finaltext=getTextFromImage();
+              Intent generatedtext = new Intent(Homepage.this, GeneratedText.class);
+              generatedtext.putExtra("text",finaltext.toString());
+              startActivity(generatedtext);
+
+
+
+            }
+        });
+        retake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(i,100);
+
+            }
+        });
+
 
     }
 
@@ -99,7 +109,11 @@ public class Homepage extends AppCompatActivity {
         if(requestcode==100)
         {
             this.captureimage=(Bitmap) data.getExtras().get("data");
-           // cameraview.setImageBitmap(captureimage);
+            camerabutton.setVisibility(View.INVISIBLE);
+            cameraview.setVisibility(View.VISIBLE);
+            textbutton.setVisibility(View.VISIBLE);
+            retake.setVisibility(View.VISIBLE);
+            cameraview.setImageBitmap(captureimage);
 
         }
     }

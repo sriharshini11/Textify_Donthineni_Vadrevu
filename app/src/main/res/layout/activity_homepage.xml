@@ -7,26 +7,49 @@
 
     <ImageView
         android:id="@+id/camerabutton"
-        android:layout_width="225dp"
-        android:layout_height="387dp"
+        android:layout_width="202dp"
+        android:layout_height="225dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="77dp"
-        android:layout_marginBottom="251dp"
-        app:srcCompat="@drawable/camera" />
+        android:layout_marginTop="206dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="300dp"
+        app:srcCompat="@drawable/camera"
+        android:visibility="visible"
+        />
 
     <Button
         android:id="@+id/textbutton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="29dp"
-        android:text="Get Text" />
+        android:layout_marginBottom="75dp"
+        android:background="@color/green"
+        android:text="GET TEXT"
+        android:textSize="20dp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/retake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:background="@color/red"
+        android:textSize="20dp"
+        android:text="RETAKE IMAGE"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="222dp"
+        android:visibility="invisible" />
+
 </RelativeLayout>
 
 
@@ -62,11 +85,7 @@
 <!--    android:layout_height="match_parent"-->
 <!--    android:padding="10dp"-->
 <!--    tools:context=".Homepage">-->
-<!--    <ImageView-->
-<!--        android:id="@+id/camera"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_weight="1" />-->
+
 
 
 <!--    <Button-->

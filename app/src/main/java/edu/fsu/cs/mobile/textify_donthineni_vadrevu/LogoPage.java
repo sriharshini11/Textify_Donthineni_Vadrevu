@@ -1,3 +1,5 @@
+//Sri Harshini Donthineni(sd17d), Venkata Vadrevu(vv18d)
+
 package edu.fsu.cs.mobile.textify_donthineni_vadrevu;
 
 import androidx.appcompat.app.AppCompatActivity;
