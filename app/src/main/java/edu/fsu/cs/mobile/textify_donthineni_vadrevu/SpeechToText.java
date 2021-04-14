@@ -20,6 +20,7 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -32,6 +33,7 @@ import java.util.Locale;
 public class SpeechToText extends AppCompatActivity {
     public ImageButton mic;
     public TextView editText;
+    public Button textbutton;
     public static final int REQUEST_CODE_SPEECH_INPUT=1;
 
     @Override
@@ -41,11 +43,23 @@ public class SpeechToText extends AppCompatActivity {
 
         mic=(ImageButton)findViewById(R.id.voiceBtn);
         editText=(TextView)findViewById(R.id.textTv);
+        textbutton=(Button)findViewById(R.id.speechtextbutton);
 
         mic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 speak();
+                textbutton.setVisibility(View.VISIBLE);
+
+            }
+        });
+        textbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String finaltext=editText.getText().toString();
+                Intent generatedtext = new Intent(SpeechToText.this, GeneratedText.class);
+                generatedtext.putExtra("text",finaltext);
+                startActivity(generatedtext);
 
             }
         });

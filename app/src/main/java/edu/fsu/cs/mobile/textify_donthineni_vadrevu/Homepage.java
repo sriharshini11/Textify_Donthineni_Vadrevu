@@ -86,8 +86,6 @@ public class Homepage extends AppCompatActivity {
               generatedtext.putExtra("text",finaltext.toString());
               startActivity(generatedtext);
 
-
-
             }
         });
         retake.setOnClickListener(new View.OnClickListener() {
