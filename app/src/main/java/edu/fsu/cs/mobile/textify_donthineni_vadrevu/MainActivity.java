@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("//////////////" + counter);
 
                         //making intent to send the uri to homeactivity
-                        Intent Homeactivityintent = new Intent(MainActivity.this, Homepage.class);
+                        Intent Homeactivityintent = new Intent(MainActivity.this, Options.class);
                         String uri = UserContentProvider.CONTENT_URI.toString() + "/" + ID;
                         Homeactivityintent.putExtra("uri", uri);
                         startActivity(Homeactivityintent);

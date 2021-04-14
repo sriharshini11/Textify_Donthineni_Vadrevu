@@ -57,7 +57,7 @@ public class Homepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-        this.setTitle("Textify");
+        this.setTitle("Image To Text");
         cameraview=(ImageView)findViewById(R.id.camera);
         camerabutton=(ImageView) findViewById(R.id.camerabutton);
         //camerabutton.setBackgroundColor(Color.BLACK);

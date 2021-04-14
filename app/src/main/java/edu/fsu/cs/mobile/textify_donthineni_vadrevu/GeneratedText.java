@@ -67,7 +67,7 @@ public class GeneratedText extends AppCompatActivity {
         gohome.setOnClickListener(new View.OnClickListener() {
                                       @Override
                                       public void onClick(View v) {
-                                          Intent i=new Intent(GeneratedText.this,Homepage.class);
+                                          Intent i=new Intent(GeneratedText.this,Options.class);
                                           startActivity(i);
                                       }
                                   }
